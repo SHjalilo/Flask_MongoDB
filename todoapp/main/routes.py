@@ -16,7 +16,8 @@ def index():
 @main.route('/add_todo' , methods=["POST"])
 def add_todo():
     todo_collection = mongo.db.todos
+    print(todo_item)
     todo_item = request.form.get('add-todo')
     todo_collection.insert_one({'text':todo_item, 'complete': False})
     print(todo_item)
-    return redirect(url_for("main.index"))
+    return redirect(url_for("main.index"))#error
